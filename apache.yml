@@ -1,0 +1,17 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: Install apache server
+      yum: name=httpd state=installed
+    - name: Start apache
+      systemd: name=httpd state=started
+    - name: Create index html file
+      file: path=/var/www/html/index.html mode=0644 state=touch
+    - name: Add content to index file
+      shell: echo "<html><h1>This Web server is built by Ansible - NEW UPDATE</h1></html>" > /var/www/html/index.html
+  handlers:
+   - name: restart httpd
+     service:
+        name: httpd
+        state: restarted
