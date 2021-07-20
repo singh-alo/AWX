@@ -9,7 +9,7 @@
     - name: Create index html file
       file: path=/var/www/html/index.html mode=0644 state=touch
     - name: Add content to index file
-      shell: echo "<html><h1>This Web server is built by Ansible - Ansible AWX is Great!!!</h1></html>" > /var/www/html/index.html
+      shell: echo "<html><h1>This Web server is built by Ansible - AWX backup has been taken by ALOK SINGH</h1></html>" > /var/www/html/index.html
   handlers:
    - name: restart httpd
      service:
